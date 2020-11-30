@@ -30,10 +30,16 @@ class App extends Component{
   componentDidMount(){
     const dbRef = firebase.database().ref();
 
-    // Allows me to grab data from the database.
+    // Grab data from the database.
     dbRef.on(`value`, (data) =>{
       const firebaseDataObj = data.val();
-      console.log(firebaseDataObj);
+
+      // Store data in state property.
+      this.setState({
+        entries:firebaseDataObj
+      })
+      
+      console.log(this.state.entries);
     })
 
   }
@@ -42,7 +48,16 @@ class App extends Component{
   submitEntry = (e) =>{
     e.preventDefault();
 
-    // Clear inputs.
+    const dbRef = firebase.database().ref();
+
+    // Push user inputs to the database.
+    const userEntry = {
+      journalTitle: this.inputTitle.value,
+      journalEntry: this.textareaEntry.value
+    }
+    dbRef.push(userEntry);
+
+    // Clear user inputs.
     this.inputTitle.value = ``;
     this.textareaEntry.value = ``;
   }
@@ -51,15 +66,15 @@ class App extends Component{
   render(){
     return (
       <div className="App">
-        <h1>From the Past to the Future!</h1>
+        <h1>Into the Future!</h1>
 
         <form action="#">
           <label htmlFor="journalTitle" className="srOnly">Journal title</label>
-          <input type="text" id="journalTitle" required={true} placeholder="Journal entry title" ref={title => this.inputTitle = title} onChange={ this.userInputs }></input>
+          <input type="text" id="journalTitle" required={true} placeholder="Journal entry title" ref={title => this.inputTitle = title}></input>
 
           <div className="journalEntry">
             <label htmlFor="journalEntry" className="srOnly">Today's journal entry:</label>
-            <textarea id="journalEntry" name="journalEntry" required={true} placeholder="What's on your mind?" cols="30" rows="10" ref={entry => this.textareaEntry = entry} onChange={ this.userInputs }></textarea>
+            <textarea id="journalEntry" name="journalEntry" required={true} placeholder="What's on your mind?" cols="30" rows="10" ref={entry => this.textareaEntry = entry}></textarea>
           </div>
 
           <input type="submit" className="submit" value="Submit entry!" onClick={this.submitEntry}></input>
