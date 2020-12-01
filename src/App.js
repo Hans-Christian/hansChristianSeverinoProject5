@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import firebase from './firebase.js'
-import './App.css';
+import './App.scss';
+import DisplayEntries from './DisplayEntries.js'
 
 // Add firebase modules to project. -DONE
     // configure and initialize firebase. -DONE
@@ -12,7 +13,6 @@ import './App.css';
 // Add an entry
     // Prevent the browser from refreshing for journal entry submits. -DONE
     // Listen for a button click when the form is submitted. -DONE.
-    // Use onChange={}.
     // Clear journal entry form so that it's ready for a new entry. -DONE.
 
 // Listen for a button click for when the user opens up an already submitted journal entry (user cannot make changes). User is allowed to read what they wrote.
@@ -34,14 +34,24 @@ class App extends Component{
     dbRef.on(`value`, (data) =>{
       const firebaseDataObj = data.val();
 
+      // A new array to store the data.
+      let entriesArray = [];
+
+      for (let entry in firebaseDataObj){
+        const entryObj = {
+          id:entry,
+          title:firebaseDataObj[entry].journalTitle,
+          entry: firebaseDataObj[entry].journalEntry
+        }
+
+        entriesArray.push(entryObj);
+      }
+
       // Store data in state property.
       this.setState({
-        entries:firebaseDataObj
+        entries:entriesArray
       })
-      
-      console.log(this.state.entries);
     })
-
   }
 
 
@@ -63,12 +73,18 @@ class App extends Component{
   }
 
 
+  deleteEntry = () =>{
+    // dbRef = firebase.database().ref();
+
+    // dbRef.child().remove();
+  }
+
   render(){
     return (
-      <div className="App">
+      <div className="App wrapper">
         <h1>Into the Future!</h1>
 
-        <form action="#">
+        <form action="#" onSubmit={this.submitEntry}>
           <label htmlFor="journalTitle" className="srOnly">Journal title</label>
           <input type="text" id="journalTitle" required={true} placeholder="Journal entry title" ref={title => this.inputTitle = title}></input>
 
@@ -77,13 +93,14 @@ class App extends Component{
             <textarea id="journalEntry" name="journalEntry" required={true} placeholder="What's on your mind?" cols="30" rows="10" ref={entry => this.textareaEntry = entry}></textarea>
           </div>
 
-          <input type="submit" className="submit" value="Submit entry!" onClick={this.submitEntry}></input>
-        </form>
+          <input type="submit" className="submit" value="Submit entry!"></input>
+        </form >
 
         <div>
-          <ul className="listOfEntries">
-
-          </ul>
+          <DisplayEntries
+          entries={this.state.entries}
+          deleteEntry={this.deleteEntry}
+          />
         </div>
       </div>
     );
