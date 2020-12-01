@@ -72,13 +72,6 @@ class App extends Component{
     this.textareaEntry.value = ``;
   }
 
-
-  deleteEntry = () =>{
-    // dbRef = firebase.database().ref();
-
-    // dbRef.child().remove();
-  }
-
   render(){
     return (
       <div className="App wrapper">
@@ -98,8 +91,11 @@ class App extends Component{
 
         <div>
           <DisplayEntries
-          entries={this.state.entries}
-          deleteEntry={this.deleteEntry}
+            entries={this.state.entries}
+            callback={(id) => {
+              const dbRef = firebase.database().ref();
+              dbRef.child(id).remove();
+            }}
           />
         </div>
       </div>

@@ -1,5 +1,6 @@
 const DisplayEntries = (props) =>{
-    const {entries, deleteEntry} = props;
+    const {entries, callback} = props;
+    // console.log();
     return(
         <div>
             {
@@ -8,7 +9,7 @@ const DisplayEntries = (props) =>{
                         <div key={entry.id}>
                             <h2>{entry.title}</h2>
                             <p>{entry.entry}</p>
-                            <button onClick={deleteEntry}>Delete Entry</button>
+                            <button onClick={() => callback(entry.id)}>Delete Entry</button>
                         </div>
                     )
                 })
