@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import firebase from './firebase.js'
-import './App.scss';
+import './styles/App.scss';
 import DisplayEntries from './DisplayEntries.js'
 
 // Add firebase modules to project. -DONE
@@ -16,7 +16,7 @@ import DisplayEntries from './DisplayEntries.js'
     // Clear journal entry form so that it's ready for a new entry. -DONE.
 
 // Listen for a button click for when the user opens up an already submitted journal entry (user cannot make changes). User is allowed to read what they wrote.
-    // Grant user the option to delete their journal entry from the page if they so choose (from the database, and state).
+    // Grant user the option to delete their journal entry from the page if they so choose (from the database, and state). -DONE
 
 class App extends Component{
   constructor(){
@@ -25,7 +25,6 @@ class App extends Component{
       entries: []
     }
   }
-
 
   componentDidMount(){
     const dbRef = firebase.database().ref();
@@ -54,7 +53,6 @@ class App extends Component{
     })
   }
 
-
   submitEntry = (e) =>{
     e.preventDefault();
 
@@ -74,30 +72,44 @@ class App extends Component{
 
   render(){
     return (
-      <div className="App wrapper">
-        <h1>Into the Future!</h1>
+      <div className="App">
 
-        <form action="#" onSubmit={this.submitEntry}>
-          <label htmlFor="journalTitle" className="srOnly">Journal title</label>
-          <input type="text" id="journalTitle" required={true} placeholder="Journal entry title" ref={title => this.inputTitle = title}></input>
+        <header>
+          <div className="headerForm wrapper">
+            <h1>Into the Future!</h1>
 
-          <div className="journalEntry">
-            <label htmlFor="journalEntry" className="srOnly">Today's journal entry:</label>
-            <textarea id="journalEntry" name="journalEntry" required={true} placeholder="What's on your mind?" cols="30" rows="10" ref={entry => this.textareaEntry = entry}></textarea>
+            <form action="#" onSubmit={this.submitEntry}>
+              <label htmlFor="journalTitle" className="srOnly">Journal title</label>
+              <input type="text" id="journalTitle" required={true} maxLength="30" placeholder="Journal entry title" ref={title => this.inputTitle = title}></input>
+
+              <div className="journalEntry">
+                <label htmlFor="journalEntry" className="srOnly">Today's journal entry:</label>
+                <textarea id="journalEntry" name="journalEntry" required={true} maxLength="400" placeholder="What's on your mind?" cols="30" rows="10" ref={entry => this.textareaEntry = entry}></textarea>
+              </div>
+
+              <input type="submit" className="submit" value="Submit Entry!"></input>
+            </form >
           </div>
+        </header>
 
-          <input type="submit" className="submit" value="Submit entry!"></input>
-        </form >
+        <main>
+          <div className="entries wrapper">
+            <DisplayEntries
+              entries={this.state.entries}
+              callback={(id) => {
+                const dbRef = firebase.database().ref();
+                dbRef.child(id).remove();
+              }}
+            />
+          </div>
+        </main>
 
-        <div>
-          <DisplayEntries
-            entries={this.state.entries}
-            callback={(id) => {
-              const dbRef = firebase.database().ref();
-              dbRef.child(id).remove();
-            }}
-          />
-        </div>
+        <footer>
+          <div className="wrapper">
+            <p> {'\u00A9'} <a href="https://github.com/Hans-Christian">Hans C. Severino</a> at <a href="https://junocollege.com/">Juno College</a> 2020 </p>
+          </div>
+        </footer>
+
       </div>
     );
   }

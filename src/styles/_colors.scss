@@ -1,0 +1,33 @@
+$primary:rgb(230,230,250);
+$secondary:rgb(25,25,112);
+$white:rgb(226,226,226);
+$black:rgb(40,40,40);
+
+body{
+    background-color:$primary;
+}
+
+body,
+input[type="text"],
+textarea,
+input[type="submit"],
+button{
+    color:$black;
+}
+
+h1{
+    text-shadow: -0.5px -0.5px 0 white, 0.5px -0.5px 0 white, -0.5px 0.5px 0 white, 0.5px 0.5px 0 white;
+}
+
+.entry{
+    background-color:rgba(25,25,112,0.2);
+}
+
+footer{
+    background-color:$secondary;
+}
+
+footer p,
+footer a{
+    color:$white;
+}

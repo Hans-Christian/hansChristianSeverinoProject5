@@ -6,7 +6,7 @@ const DisplayEntries = (props) =>{
             {
                 entries.map((entry) =>{
                     return(
-                        <div key={entry.id}>
+                        <div key={entry.id} className="entry">
                             <h2>{entry.title}</h2>
                             <p>{entry.entry}</p>
                             <button onClick={() => callback(entry.id)}>Delete Entry</button>
