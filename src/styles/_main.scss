@@ -6,12 +6,10 @@ main p{
     margin:1.5rem 0;
 }
 
-.entries{
-    margin:3rem auto;
-}
-
 .entry{
-    width:calc(100% / 2);
-    margin-top:1.5rem;
+    width:75%;
+    padding:2rem;
+    margin:4rem auto;
+    border: 3px solid $secondary;
 }
 

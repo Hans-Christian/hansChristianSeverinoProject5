@@ -84,7 +84,7 @@ class App extends Component{
 
               <div className="journalEntry">
                 <label htmlFor="journalEntry" className="srOnly">Today's journal entry:</label>
-                <textarea id="journalEntry" name="journalEntry" required={true} maxLength="400" placeholder="What's on your mind?" cols="30" rows="10" ref={entry => this.textareaEntry = entry}></textarea>
+                <textarea id="journalEntry" name="journalEntry" required={true} minLength="250" maxLength="500" placeholder="What's on your mind?" cols="30" rows="10" ref={entry => this.textareaEntry = entry}></textarea>
               </div>
 
               <input type="submit" className="submit" value="Submit Entry!"></input>

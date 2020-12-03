@@ -8,7 +8,7 @@ header{
 
 h1{
     margin:0;
-    padding:6rem 0 6rem 0;
+    padding:6rem 0;
     letter-spacing:0.7rem;
 }
 
@@ -20,8 +20,11 @@ textarea{
     width:55rem;
     height:30rem;
     resize:none;
-    margin-top:0.5rem;
+    margin:0.5rem 0 1rem 0;
     padding:0.5rem 0 0 0.5rem;
 }
 
-
+input[type="text"],
+textarea{
+    outline:none;
+}
