@@ -1,5 +1,6 @@
 $primary:rgb(230,230,250);
 $secondary:rgb(25,25,112);
+$tertiary:rgb(0,128,128);
 $white:rgb(226,226,226);
 $black:rgb(40,40,40);
 
@@ -11,6 +12,7 @@ body,
 input[type="text"],
 textarea,
 input[type="submit"],
+.theCount,
 button{
     color:$black;
 }
@@ -21,6 +23,11 @@ h1{
 
 .entry{
     background-color:rgba(25,25,112,0.1);
+}
+
+.charCount{
+    background-color:$black;
+    color:$white;
 }
 
 footer{

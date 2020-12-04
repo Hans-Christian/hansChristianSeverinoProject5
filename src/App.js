@@ -22,7 +22,9 @@ class App extends Component{
   constructor(){
     super();
     this.state = {
-      entries: []
+      entries: [],
+      startingChars:500,
+      remainingChars:500
     }
   }
 
@@ -70,6 +72,15 @@ class App extends Component{
     this.textareaEntry.value = ``;
   }
 
+  charCountdown = (e) =>{
+    const userInput = e.target.value;
+    const charsLeft = this.state.startingChars - userInput.length;
+
+    this.setState({
+      remainingChars:charsLeft
+    });
+  }
+
   render(){
     return (
       <div className="App">
@@ -84,7 +95,8 @@ class App extends Component{
 
               <div className="journalEntry">
                 <label htmlFor="journalEntry" className="srOnly">Today's journal entry:</label>
-                <textarea id="journalEntry" name="journalEntry" required={true} minLength="250" maxLength="500" placeholder="What's on your mind?" cols="30" rows="10" ref={entry => this.textareaEntry = entry}></textarea>
+                <textarea id="journalEntry" name="journalEntry" required={true} minLength="250" maxLength="500" placeholder="What's on your mind?" cols="30" rows="10" ref={entry => this.textareaEntry = entry} onChange={this.charCountdown}></textarea>
+                <p className="charCount">Characters left: {this.state.remainingChars}</p>
               </div>
 
               <input type="submit" className="submit" value="Submit Entry!"></input>
