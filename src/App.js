@@ -7,7 +7,7 @@ import DisplayEntries from './DisplayEntries.js'
     // configure and initialize firebase. -DONE
     // Export/import firebase. -DONE
 
-// Display already submitted journal entries on the page in the form of a button OR link on page load.
+// Display already submitted journal entries on the page in the form of a button OR link on page load. -DONE.
     // Turn journal entries into a component that will be a square page (or post-it) that contains the title and date.
 
 // Add an entry
@@ -15,7 +15,7 @@ import DisplayEntries from './DisplayEntries.js'
     // Listen for a button click when the form is submitted. -DONE.
     // Clear journal entry form so that it's ready for a new entry. -DONE.
 
-// Listen for a button click for when the user opens up an already submitted journal entry (user cannot make changes). User is allowed to read what they wrote.
+// Listen for a button click for when the user opens up an already submitted journal entry (user cannot make changes). User is allowed to read what they wrote. -NOT ADDED.
     // Grant user the option to delete their journal entry from the page if they so choose (from the database, and state). -DONE
 
 class App extends Component{
@@ -72,6 +72,7 @@ class App extends Component{
     this.textareaEntry.value = ``;
   }
 
+  // Add a character counter so the user knows how many characters they have left to type.
   charCountdown = (e) =>{
     const userInput = e.target.value;
     const charsLeft = this.state.startingChars - userInput.length;
