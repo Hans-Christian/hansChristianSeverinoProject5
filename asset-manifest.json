@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/hansChristianSeverinoProject5/static/css/main.eb0accfa.chunk.css",
+    "main.css": "/hansChristianSeverinoProject5/static/css/main.2e127c78.chunk.css",
     "main.js": "/hansChristianSeverinoProject5/static/js/main.fa2fc6e8.chunk.js",
     "main.js.map": "/hansChristianSeverinoProject5/static/js/main.fa2fc6e8.chunk.js.map",
     "runtime-main.js": "/hansChristianSeverinoProject5/static/js/runtime-main.81313047.js",
@@ -10,14 +10,14 @@
     "static/js/3.f552dc9d.chunk.js": "/hansChristianSeverinoProject5/static/js/3.f552dc9d.chunk.js",
     "static/js/3.f552dc9d.chunk.js.map": "/hansChristianSeverinoProject5/static/js/3.f552dc9d.chunk.js.map",
     "index.html": "/hansChristianSeverinoProject5/index.html",
-    "static/css/main.eb0accfa.chunk.css.map": "/hansChristianSeverinoProject5/static/css/main.eb0accfa.chunk.css.map",
+    "static/css/main.2e127c78.chunk.css.map": "/hansChristianSeverinoProject5/static/css/main.2e127c78.chunk.css.map",
     "static/js/2.76c879c3.chunk.js.LICENSE.txt": "/hansChristianSeverinoProject5/static/js/2.76c879c3.chunk.js.LICENSE.txt",
     "static/media/App.scss": "/hansChristianSeverinoProject5/static/media/headerImage.7c1a743b.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.81313047.js",
     "static/js/2.76c879c3.chunk.js",
-    "static/css/main.eb0accfa.chunk.css",
+    "static/css/main.2e127c78.chunk.css",
     "static/js/main.fa2fc6e8.chunk.js"
   ]
 }
