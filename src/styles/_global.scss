@@ -14,8 +14,7 @@ button{
     border-radius:0.5px;
 }
 
-input[type="text"],
-textarea,
+.charCount,
 .entry{
     border-radius:7px;
 }
@@ -23,6 +22,7 @@ textarea,
 input[type="text"],
 input[type="submit"],
 h2,
-button{
+button,
+footer p{
     letter-spacing:0.2rem;
 }

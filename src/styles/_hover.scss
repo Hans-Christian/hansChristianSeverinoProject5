@@ -6,3 +6,15 @@ button:focus{
     color:$white;
 }
 
+input[type="text"]:hover,
+input[type="text"]:focus,
+textarea:hover,
+textarea:focus{
+    outline:3px solid $secondary;
+}
+
+footer a:hover,
+footer a:focus{
+    background-color:$white;
+    color:$secondary;
+}
