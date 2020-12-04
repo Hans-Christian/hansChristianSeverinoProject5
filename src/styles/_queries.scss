@@ -1,0 +1,74 @@
+@media (max-width:882px){
+
+    html{
+        font-size:57%;
+    }
+
+    .charCount{
+        left:137px;
+    }
+
+    .entry{
+        width:90%;
+    }
+}
+
+@media (max-width:566px){
+
+    html{
+        font-size:54%;
+    }
+
+    textarea{
+        width:45rem;
+    }
+
+    .charCount{
+        left:86px;
+    }
+}
+
+@media (max-width:482px){
+
+    html{
+        font-size:50%;
+    }
+
+    textarea{
+        width:35rem;
+        height:40rem;
+    }
+
+    .charCount{
+        left:40px;
+    }
+
+    .entry{
+        width:100%;
+    }
+}
+
+@media (max-width:448px){
+
+    footer a{
+        padding:0;
+    }
+}
+
+@media (max-width:366px){
+
+    h1{
+        padding:2rem 0;
+    }
+
+    textarea{
+        width:33.5rem;
+        height:35rem;
+    }
+
+    .charCount{
+        left:34px;
+    }
+}
+
+
