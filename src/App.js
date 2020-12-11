@@ -1,7 +1,7 @@
 import { Component } from 'react';
-import firebase from './firebase.js'
+import firebase from './firebase.js';
 import './styles/App.scss';
-import DisplayEntries from './DisplayEntries.js'
+import DisplayEntries from './DisplayEntries.js';
 
 // Add firebase modules to project. -DONE
     // configure and initialize firebase. -DONE
